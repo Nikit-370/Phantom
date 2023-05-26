@@ -1,0 +1,8 @@
+colorama
+paramiko
+pyfiglet
+requests
+argparse
+scapy
+IPy
+termcolor
